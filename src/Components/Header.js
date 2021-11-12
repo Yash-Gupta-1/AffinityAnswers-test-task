@@ -4,9 +4,10 @@ import '../StyleSheet/Header.css'
 import { Avatar, Badge, Button } from '@mui/material'
 import { Close, ShoppingCart } from '@mui/icons-material'
 
-export const getCartProducts = async () => {
+export const getCartProducts = () => {
     const data = localStorage.getItem('cartItems')
     if (data) {
+        console.log('get cart data', JSON.parse(data));
         return JSON.parse(data)
     } else {
         return []
@@ -14,45 +15,42 @@ export const getCartProducts = async () => {
 }
 
 const Header = () => {
-    const [products, setProducts] = useState([])
-
-
-
-    const CartProducts = async () => {
-        if (products) {
-            await getCartProducts().then((res) => {
-                setProducts(res)
-            })
-        }
-    }
+    const [products, setProducts] = useState(getCartProducts())
     const [quantity, setQuantity] = useState(1)
 
-
-    const increaseQuantity = () => {
-        setQuantity(quantity + 1)
+    const CartProducts = () => {
+        setProducts(getCartProducts())
     }
 
-    const decreaseQuantity = () => {
-        setQuantity(quantity - 1)
+    const increaseQuantity = (id) => {
+        const qty = quantity + 1;
+        setQuantity(qty);
+    }
+
+    const decreaseQuantity = (id) => {
+        if (1 >= quantity) return;
+
+        const qty = quantity - 1;
+        setQuantity(qty);
     }
 
     const removeItem = (id) => {
         let data = JSON.parse(localStorage.getItem("cartItems"))
-        console.log('data', data);
 
         let index = products.findIndex(element => element.data.id === id)
         if (index > -1) {
             data.splice(index, 1);
         }
+        setProducts(data)
         localStorage.setItem("cartItems", JSON.stringify(data))
         getCartProducts()
     }
 
     useEffect(() => {
-
+        // getCartProducts()
         CartProducts()
 
-    }, [CartProducts])
+    }, [])
 
     return (
         <header className="header">
@@ -116,7 +114,7 @@ const Header = () => {
                                                                             <h5>Quantity</h5>
                                                                             <div className='rowDis'>
                                                                                 <button variant="text" disabled={quantity < 2 && true} onClick={decreaseQuantity}>-</button>
-                                                                                <p>{quantity}</p>
+                                                                                <input readOnly type="number" value={quantity} />
                                                                                 <button variant="text" onClick={increaseQuantity}>+</button>
                                                                             </div>
                                                                         </div>

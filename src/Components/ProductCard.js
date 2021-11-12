@@ -4,17 +4,10 @@ import Modal from '@mui/material/Modal';
 import { Close, Favorite, ShoppingCart } from "@mui/icons-material";
 import { makeStyles } from '@material-ui/core/styles';
 import { getCartProducts } from "./Header";
+import { toast } from "react-toastify";
+import Toaster from "./Toaster";
 
-// const style = {
-//     position: 'absolute',
-//     top: '50%',
-//     left: '50%',
-//     transform: 'translate(-50%, -50%)',
-//     width: '50%',
-//     bgcolor: 'background.paper',
-//     boxShadow: 24,
-//     p: 4,
-// };
+
 const useStyles = makeStyles((theme) => ({
     modal: {
         display: 'flex',
@@ -74,7 +67,8 @@ const ProductCard = ({ product }) => {
             localStorage.setItem('cartItems', JSON.stringify(addedProduct))
             getCartProducts()
         } else {
-            alert('Product already exist')
+            // alert('Product already exist')
+            toast.info("Product already exist")
         }
     }
 
@@ -112,6 +106,7 @@ const ProductCard = ({ product }) => {
                                 <Close />
                             </IconButton>
                             <div className="productModal">
+                                <Toaster />
                                 <div className="productModal_Img">
                                     <img src={product.image} alt={product.image} />
                                 </div>
@@ -134,7 +129,7 @@ const ProductCard = ({ product }) => {
 
                                     <div className="rowDis cart_fav_Btn">
                                         <Button variant="outlined"><Favorite /></Button>
-                                        <Button variant="outlined"><ShoppingCart /></Button>
+                                        <Button variant="outlined" onClick={() => addtoCart(product.id)}><ShoppingCart /></Button>
                                     </div>
                                     <Button variant="contained" className="buyNow_Btn" fullWidth={true}>Buy Now</Button>
 
