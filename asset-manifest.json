@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/AffinityAnswers-test-task/static/css/main.676016d1.chunk.css",
+    "main.js": "/AffinityAnswers-test-task/static/js/main.b37939c7.chunk.js",
+    "main.js.map": "/AffinityAnswers-test-task/static/js/main.b37939c7.chunk.js.map",
+    "runtime-main.js": "/AffinityAnswers-test-task/static/js/runtime-main.4d9232cf.js",
+    "runtime-main.js.map": "/AffinityAnswers-test-task/static/js/runtime-main.4d9232cf.js.map",
+    "static/css/2.58a45539.chunk.css": "/AffinityAnswers-test-task/static/css/2.58a45539.chunk.css",
+    "static/js/2.9565814c.chunk.js": "/AffinityAnswers-test-task/static/js/2.9565814c.chunk.js",
+    "static/js/2.9565814c.chunk.js.map": "/AffinityAnswers-test-task/static/js/2.9565814c.chunk.js.map",
+    "index.html": "/AffinityAnswers-test-task/index.html",
+    "static/css/2.58a45539.chunk.css.map": "/AffinityAnswers-test-task/static/css/2.58a45539.chunk.css.map",
+    "static/css/main.676016d1.chunk.css.map": "/AffinityAnswers-test-task/static/css/main.676016d1.chunk.css.map",
+    "static/js/2.9565814c.chunk.js.LICENSE.txt": "/AffinityAnswers-test-task/static/js/2.9565814c.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.4d9232cf.js",
+    "static/css/2.58a45539.chunk.css",
+    "static/js/2.9565814c.chunk.js",
+    "static/css/main.676016d1.chunk.css",
+    "static/js/main.b37939c7.chunk.js"
+  ]
+}
